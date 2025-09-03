@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>E-Commerce Manager</title>
   <link rel="stylesheet" href="ecommerce manager.css">
-    <script src="ecommerce manager.js" defer></script>
+  <script src="ecommerce manager.js" defer></script>
 </head>
 <body>
 
-  
+  <!-- ✅ Navbar -->
   <header class="navbar">
     <h1>E-Commerce Manager</h1>
     <nav>
@@ -21,7 +21,7 @@
     </nav>
   </header>
 
-  
+  <!-- ✅ Dashboard Cards -->
   <section class="dashboard">
     <div class="card">
       <h3>Total Revenue</h3>
@@ -37,8 +37,8 @@
     </div>
   </section>
 
-  
-  <section style="margin:20px;">
+  <!-- ✅ Add Product -->
+  <section class="container">
     <h2>Add New Product</h2>
     <form id="productForm">
       <input type="text" id="product" placeholder="Product Name" required>
@@ -50,13 +50,10 @@
         <option value="Low Stock">Low Stock</option>
         <option value="Out of Stock">Out of Stock</option>
       </select>
-      <button type="submit">➕ Add Product</button>
+      <button type="submit" class="submit-btn">💾 Save Product</button>
     </form>
-  </section>
 
-  
-  <section style="margin:20px;">
-    <h2>Products & Suppliers</h2>
+    <h2>Products List</h2>
     <table class="table" id="productsTable">
       <thead>
         <tr>
@@ -67,26 +64,21 @@
           <th>Status</th>
         </tr>
       </thead>
-      <tbody>
-       
-      </tbody>
+      <tbody></tbody>
     </table>
   </section>
 
-  
-  <section style="margin:20px;">
+  <!-- ✅ Add Expense -->
+  <section class="container">
     <h2>Add New Expense</h2>
     <form id="expenseForm">
       <input type="text" id="category" placeholder="Expense Category" required>
       <input type="number" id="amount" placeholder="Amount" required>
       <input type="date" id="date" required>
-      <button type="submit">➕ Add Expense</button>
+      <button type="submit" class="submit-btn">💾 Save Expense</button>
     </form>
-  </section>
 
-  
-  <section style="margin:20px;">
-    <h2>Expenses</h2>
+    <h2>Expenses List</h2>
     <table class="table" id="expensesTable">
       <thead>
         <tr>
@@ -95,12 +87,10 @@
           <th>Date</th>
         </tr>
       </thead>
-      <tbody>
-       
-      </tbody>
+      <tbody></tbody>
     </table>
   </section>
 
-
 </body>
 </html>
+

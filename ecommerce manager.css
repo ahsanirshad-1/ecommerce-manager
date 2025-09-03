@@ -1,20 +1,20 @@
-
+/* 🌐 Global */
 body {
   margin: 0;
-  font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
-  background: #f4f6f9;
+  font-family: "Inter", sans-serif;
+  background: #f5f7fa;
   color: #2d2d2d;
   line-height: 1.6;
 }
 
-
+/* 🚀 Navbar */
 .navbar {
-  background: #ffffff;
+  background: #fff;
   padding: 15px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border-bottom: 1px solid #e5e7eb;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -23,8 +23,7 @@ body {
 .navbar h1 {
   font-size: 20px;
   font-weight: 700;
-  color: #1a73e8;
-  margin: 0;
+  color: #2563eb;
 }
 
 .navbar nav a {
@@ -32,14 +31,14 @@ body {
   text-decoration: none;
   color: #555;
   font-weight: 500;
-  transition: color 0.2s ease-in-out;
+  transition: 0.2s;
 }
 
 .navbar nav a:hover {
-  color: #1a73e8;
+  color: #2563eb;
 }
 
-
+/* 📊 Dashboard */
 .dashboard {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -48,77 +47,128 @@ body {
 }
 
 .card {
-  background: #ffffff;
-  border-radius: 14px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px;
+  border: 1px solid #e5e7eb;
+  transition: 0.2s;
+  text-align: center;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  transform: translateY(-3px);
+  border-color: #2563eb;
 }
 
 .card h3 {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: #444;
+  font-size: 15px;
+  color: #374151;
 }
 
 .card .value {
-  font-size: 24px;
-  font-weight: bold;
-  color: #1a73e8;
+  font-size: 22px;
+  font-weight: 700;
+  color: #2563eb;
 }
 
+/* 📝 Sections */
+.container {
+  margin: 20px;
+  background: #fff;
+  padding: 18px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+}
 
-section h2 {
-  font-size: 18px;
+/* 🎛 Toggle Buttons */
+.toggle-btn {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #fff;
+  font-size: 14px;
   font-weight: 600;
-  margin: 20px 0 10px 0;
-  color: #333;
-  border-left: 4px solid #1a73e8;
-  padding-left: 8px;
+  padding: 9px 16px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  margin-bottom: 12px;
+  transition: 0.3s;
 }
 
+.toggle-btn:hover {
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+}
 
+/* 📋 Hidden Form */
+form.hidden {
+  display: none;
+}
+
+form {
+  margin-bottom: 15px;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {opacity: 0; transform: translateY(-10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* ✏️ Inputs */
+input, select {
+  width: 100%;
+  padding: 7px 10px;
+  border: 0.8px solid #dcdcdc;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-bottom: 10px;
+  transition: 0.2s;
+}
+
+input:focus, select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1.5px rgba(37, 99, 235, 0.25);
+  outline: none;
+}
+
+/* 🚀 Submit Buttons */
+.submit-btn {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  padding: 9px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+}
+
+/* 📊 Table */
 .table {
   width: 100%;
   border-collapse: collapse;
-  background: #ffffff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  margin-top: 10px;
+  font-size: 14px;
 }
 
 .table th, .table td {
-  padding: 14px 16px;
+  padding: 12px 14px;
   text-align: left;
 }
 
 .table thead {
-  background: #f0f4f8;
-  color: #333;
+  background: #f9fafb;
+  color: #374151;
+  font-weight: 600;
 }
 
 .table tbody tr {
-  border-bottom: 1px solid #f0f0f0;
+  border-top: 1px solid #e5e7eb;
 }
 
 .table tbody tr:hover {
-  background: #f9fbfd;
-}
-
-
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .navbar nav {
-    margin-top: 10px;
-  }
+  background: #f3f6fb;
 }

@@ -1,89 +1,100 @@
+// ⚡ Replace with your actual Smartsheet API token and Sheet IDs
+const API_TOKEN = "YOUR_SMARTSHEET_API_TOKEN";
+const PRODUCT_SHEET_ID = "YOUR_PRODUCTS_SHEET_ID";
+const EXPENSE_SHEET_ID = "YOUR_EXPENSES_SHEET_ID";
 
-  const ACCESS_TOKEN = "YOUR_SMARTSHEET_API_TOKEN"; 
-  const SHEET_ID = "YOUR_SHEET_ID"; 
+// 🔗 Generic function to send data to Smartsheet
+async function addRowToSmartsheet(sheetId, rowData) {
+  try {
+    const response = await fetch(`https://api.smartsheet.com/2.0/sheets/${sheetId}/rows`, {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${API_TOKEN}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        toTop: true,
+        rows: [
+          {
+            cells: rowData
+          }
+        ]
+      })
+    });
 
-  async function addRowToSmartsheet(rowData) {
-    try {
-      const response = await fetch(`https://api.smartsheet.com/2.0/sheets/${SHEET_ID}/rows`, {
-        method: "POST",
-        headers: {
-          "Authorization": `Bearer ${ACCESS_TOKEN}`,
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          toTop: true, 
-          cells: rowData
-        })
-      });
-
-      if (!response.ok) {
-        const err = await response.json();
-        console.error("Error:", err);
-      } else {
-        console.log("Row added successfully!");
-      }
-    } catch (error) {
-      console.error("Request failed:", error);
-    }
+    const result = await response.json();
+    console.log("✅ Row added to Smartsheet:", result);
+  } catch (error) {
+    console.error("❌ Error adding row to Smartsheet:", error);
   }
+}
 
-  // Handle Product Form
-  document.getElementById("productForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+// ✅ Toggle form visibility
+function toggleForm(id) {
+  const form = document.getElementById(id);
+  form.classList.toggle("hidden");
+}
 
-    const product = document.getElementById("product").value;
-    const supplier = document.getElementById("supplier").value;
-    const stock = document.getElementById("stock").value;
-    const price = document.getElementById("price").value;
-    const status = document.getElementById("status").value;
+// ✅ Add product
+document.getElementById("productForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
 
-   
-    const table = document.querySelector("#productsTable tbody");
-    const row = `<tr>
-      <td>${product}</td>
-      <td>${supplier}</td>
-      <td>${stock}</td>
-      <td>$${price}</td>
-      <td>${status}</td>
-    </tr>`;
-    table.innerHTML += row;
+  const product = document.getElementById("product").value;
+  const supplier = document.getElementById("supplier").value;
+  const stock = document.getElementById("stock").value;
+  const price = document.getElementById("price").value;
+  const status = document.getElementById("status").value;
 
-    
-    addRowToSmartsheet([
-      { columnId: 1234567890, value: product },   
-      { columnId: 2234567890, value: supplier },
-      { columnId: 3234567890, value: stock },
-      { columnId: 4234567890, value: price },
-      { columnId: 5234567890, value: status }
-    ]);
+  // --- Smartsheet Row Data ---
+  const rowData = [
+    { columnId: 111111111111, value: product },
+    { columnId: 222222222222, value: supplier },
+    { columnId: 333333333333, value: stock },
+    { columnId: 444444444444, value: price },
+    { columnId: 555555555555, value: status }
+  ];
+  await addRowToSmartsheet(PRODUCT_SHEET_ID, rowData);
 
-    e.target.reset();
-  });
+  // --- Update local table instantly ---
+  const table = document.getElementById("productsTable").querySelector("tbody");
+  const row = `<tr>
+    <td>${product}</td>
+    <td>${supplier}</td>
+    <td>${stock}</td>
+    <td>$${price}</td>
+    <td>${status}</td>
+  </tr>`;
+  table.innerHTML += row;
 
-  
-  document.getElementById("expenseForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+  this.reset();
+  this.classList.add("hidden");
+});
 
-    const category = document.getElementById("category").value;
-    const amount = document.getElementById("amount").value;
-    const date = document.getElementById("date").value;
+// ✅ Add expense
+document.getElementById("expenseForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
 
-    
-    const table = document.querySelector("#expensesTable tbody");
-    const row = `<tr>
-      <td>${category}</td>
-      <td>$${amount}</td>
-      <td>${date}</td>
-    </tr>`;
-    table.innerHTML += row;
+  const category = document.getElementById("category").value;
+  const amount = document.getElementById("amount").value;
+  const date = document.getElementById("date").value;
 
-    
-    addRowToSmartsheet([
-      { columnId: 6234567890, value: category },
-      { columnId: 7234567890, value: amount },
-      { columnId: 8234567890, value: date }
-    ]);
+  // --- Smartsheet Row Data ---
+  const rowData = [
+    { columnId: 666666666666, value: category },
+    { columnId: 777777777777, value: amount },
+    { columnId: 888888888888, value: date }
+  ];
+  await addRowToSmartsheet(EXPENSE_SHEET_ID, rowData);
 
-    e.target.reset();
-  });
+  // --- Update local table instantly ---
+  const table = document.getElementById("expensesTable").querySelector("tbody");
+  const row = `<tr>
+    <td>${category}</td>
+    <td>$${amount}</td>
+    <td>${date}</td>
+  </tr>`;
+  table.innerHTML += row;
 
+  this.reset();
+  this.classList.add("hidden");
+});
