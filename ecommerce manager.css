@@ -1,4 +1,4 @@
-/* 🌐 Global Styles */
+
 body {
   margin: 0;
   font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
@@ -7,7 +7,7 @@ body {
   line-height: 1.6;
 }
 
-/* 🚀 Navbar */
+
 .navbar {
   background: #ffffff;
   padding: 15px 30px;
@@ -39,7 +39,7 @@ body {
   color: #1a73e8;
 }
 
-/* 📊 Dashboard Cards */
+
 .dashboard {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -73,7 +73,7 @@ body {
   color: #1a73e8;
 }
 
-/* 📋 Section Titles */
+
 section h2 {
   font-size: 18px;
   font-weight: 600;
@@ -83,7 +83,7 @@ section h2 {
   padding-left: 8px;
 }
 
-/* 📋 Table Style */
+
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -111,7 +111,7 @@ section h2 {
   background: #f9fbfd;
 }
 
-/* 📱 Responsive */
+
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;

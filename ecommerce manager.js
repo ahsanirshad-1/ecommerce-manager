@@ -1,6 +1,6 @@
 
-  const ACCESS_TOKEN = "YOUR_SMARTSHEET_API_TOKEN"; // 🔑 Put your API token here
-  const SHEET_ID = "YOUR_SHEET_ID"; // 📄 Replace with your Smartsheet sheet ID
+  const ACCESS_TOKEN = "YOUR_SMARTSHEET_API_TOKEN"; 
+  const SHEET_ID = "YOUR_SHEET_ID"; 
 
   async function addRowToSmartsheet(rowData) {
     try {
@@ -37,7 +37,7 @@
     const price = document.getElementById("price").value;
     const status = document.getElementById("status").value;
 
-    // add row in HTML
+   
     const table = document.querySelector("#productsTable tbody");
     const row = `<tr>
       <td>${product}</td>
@@ -48,9 +48,9 @@
     </tr>`;
     table.innerHTML += row;
 
-    // add row in Smartsheet
+    
     addRowToSmartsheet([
-      { columnId: 1234567890, value: product },   // Replace columnId with actual Smartsheet column ID
+      { columnId: 1234567890, value: product },   
       { columnId: 2234567890, value: supplier },
       { columnId: 3234567890, value: stock },
       { columnId: 4234567890, value: price },
@@ -60,7 +60,7 @@
     e.target.reset();
   });
 
-  // Handle Expense Form
+  
   document.getElementById("expenseForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
@@ -68,7 +68,7 @@
     const amount = document.getElementById("amount").value;
     const date = document.getElementById("date").value;
 
-    // add row in HTML
+    
     const table = document.querySelector("#expensesTable tbody");
     const row = `<tr>
       <td>${category}</td>
@@ -77,7 +77,7 @@
     </tr>`;
     table.innerHTML += row;
 
-    // add row in Smartsheet
+    
     addRowToSmartsheet([
       { columnId: 6234567890, value: category },
       { columnId: 7234567890, value: amount },
