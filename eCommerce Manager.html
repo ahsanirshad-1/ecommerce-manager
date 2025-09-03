@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce Manager</title>
+  <link rel="stylesheet" href="ecommerce manager.css">
+    <script src="ecommerce manager.js" defer></script>
+</head>
+<body>
+
+  <!-- 🚀 Navbar -->
+  <header class="navbar">
+    <h1>E-Commerce Manager</h1>
+    <nav>
+      <a href="#">Products</a>
+      <a href="#">Suppliers</a>
+      <a href="#">Orders</a>
+      <a href="#">Expenses</a>
+      <a href="#">Dashboard</a>
+    </nav>
+  </header>
+
+  <!-- 📊 Dashboard Section -->
+  <section class="dashboard">
+    <div class="card">
+      <h3>Total Revenue</h3>
+      <p class="value">$0</p>
+    </div>
+    <div class="card">
+      <h3>Orders</h3>
+      <p class="value">0</p>
+    </div>
+    <div class="card">
+      <h3>Profit/Loss</h3>
+      <p class="value">$0</p>
+    </div>
+  </section>
+
+  <!-- 📋 Add Product Form -->
+  <section style="margin:20px;">
+    <h2>Add New Product</h2>
+    <form id="productForm">
+      <input type="text" id="product" placeholder="Product Name" required>
+      <input type="text" id="supplier" placeholder="Supplier" required>
+      <input type="number" id="stock" placeholder="Stock" required>
+      <input type="number" id="price" placeholder="Price" required>
+      <select id="status">
+        <option value="Active">Active</option>
+        <option value="Low Stock">Low Stock</option>
+        <option value="Out of Stock">Out of Stock</option>
+      </select>
+      <button type="submit">➕ Add Product</button>
+    </form>
+  </section>
+
+  <!-- 📋 Products Table -->
+  <section style="margin:20px;">
+    <h2>Products & Suppliers</h2>
+    <table class="table" id="productsTable">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Supplier</th>
+          <th>Stock</th>
+          <th>Price</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Data will be added here manually -->
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 📋 Add Expense Form -->
+  <section style="margin:20px;">
+    <h2>Add New Expense</h2>
+    <form id="expenseForm">
+      <input type="text" id="category" placeholder="Expense Category" required>
+      <input type="number" id="amount" placeholder="Amount" required>
+      <input type="date" id="date" required>
+      <button type="submit">➕ Add Expense</button>
+    </form>
+  </section>
+
+  <!-- 📋 Expenses Table -->
+  <section style="margin:20px;">
+    <h2>Expenses</h2>
+    <table class="table" id="expensesTable">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Amount</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Data will be added here manually -->
+      </tbody>
+    </table>
+  </section>
+
+
+</body>
+</html>
