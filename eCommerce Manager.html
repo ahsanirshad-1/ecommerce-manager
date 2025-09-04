@@ -9,88 +9,104 @@
 </head>
 <body>
 
-  <!-- ✅ Navbar -->
+  <!-- 🔝 Navbar -->
   <header class="navbar">
-    <h1>E-Commerce Manager</h1>
+    <h1 class="logo">E-Commerce Manager</h1>
     <nav>
+      <a href="#">Dashboard</a>
       <a href="#">Products</a>
       <a href="#">Suppliers</a>
       <a href="#">Orders</a>
       <a href="#">Expenses</a>
-      <a href="#">Dashboard</a>
     </nav>
   </header>
 
-  <!-- ✅ Dashboard Cards -->
-  <section class="dashboard">
-    <div class="card">
-      <h3>Total Revenue</h3>
-      <p class="value">$0</p>
-    </div>
-    <div class="card">
-      <h3>Orders</h3>
-      <p class="value">0</p>
-    </div>
-    <div class="card">
-      <h3>Profit/Loss</h3>
-      <p class="value">$0</p>
-    </div>
-  </section>
+  <!-- 📊 Dashboard Summary -->
+  <main>
+    <section class="dashboard">
+      <div class="card">
+        <h3>Total Revenue</h3>
+        <p class="value" id="totalRevenue">$0</p>
+      </div>
+      <div class="card">
+        <h3>Total Orders</h3>
+        <p class="value" id="totalOrders">0</p>
+      </div>
+      <div class="card">
+        <h3>Profit / Loss</h3>
+        <p class="value" id="profitLoss">$0</p>
+      </div>
+      <div class="card">
+        <h3>Total Expenses</h3>
+        <p class="value" id="totalExpenses">$0</p>
+      </div>
+    </section>
 
-  <!-- ✅ Add Product -->
-  <section class="container">
-    <h2>Add New Product</h2>
-    <form id="productForm">
-      <input type="text" id="product" placeholder="Product Name" required>
-      <input type="text" id="supplier" placeholder="Supplier" required>
-      <input type="number" id="stock" placeholder="Stock" required>
-      <input type="number" id="price" placeholder="Price" required>
-      <select id="status">
-        <option value="Active">Active</option>
-        <option value="Low Stock">Low Stock</option>
-        <option value="Out of Stock">Out of Stock</option>
-      </select>
-      <button type="submit" class="submit-btn">💾 Save Product</button>
-    </form>
+    <!-- 🛒 Products Section -->
+    <section class="container">
+      <h2>🛍️ Manage Products</h2>
+      <form id="productForm">
+        <div class="form-group">
+          <input type="text" id="product" placeholder="Product Name" required>
+          <input type="text" id="supplier" placeholder="Supplier" required>
+        </div>
+        <div class="form-group">
+          <input type="number" id="stock" placeholder="Stock" required>
+          <input type="number" id="price" placeholder="Price" required>
+          <select id="status">
+            <option value="Active">Active</option>
+            <option value="Low Stock">Low Stock</option>
+            <option value="Out of Stock">Out of Stock</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-btn">💾 Save Product</button>
+      </form>
 
-    <h2>Products List</h2>
-    <table class="table" id="productsTable">
-      <thead>
-        <tr>
-          <th>Product</th>
-          <th>Supplier</th>
-          <th>Stock</th>
-          <th>Price</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-  </section>
+      <h3>📦 Products List</h3>
+      <table class="table" id="productsTable">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Supplier</th>
+            <th>Stock</th>
+            <th>Price</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
 
-  <!-- ✅ Add Expense -->
-  <section class="container">
-    <h2>Add New Expense</h2>
-    <form id="expenseForm">
-      <input type="text" id="category" placeholder="Expense Category" required>
-      <input type="number" id="amount" placeholder="Amount" required>
-      <input type="date" id="date" required>
-      <button type="submit" class="submit-btn">💾 Save Expense</button>
-    </form>
+    <!-- 💰 Expenses Section -->
+    <section class="container">
+      <h2>💰 Manage Expenses</h2>
+      <form id="expenseForm">
+        <div class="form-group">
+          <input type="text" id="category" placeholder="Expense Category" required>
+          <input type="number" id="amount" placeholder="Amount" required>
+          <input type="date" id="date" required>
+        </div>
+        <button type="submit" class="submit-btn">💾 Save Expense</button>
+      </form>
 
-    <h2>Expenses List</h2>
-    <table class="table" id="expensesTable">
-      <thead>
-        <tr>
-          <th>Category</th>
-          <th>Amount</th>
-          <th>Date</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-  </section>
+      <h3>📑 Expenses List</h3>
+      <table class="table" id="expensesTable">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Amount</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- 🔻 Footer -->
+  <footer class="footer">
+    <p>© 2025 E-Commerce Manager | Built with ❤️ for efficiency</p>
+  </footer>
 
 </body>
 </html>
-
